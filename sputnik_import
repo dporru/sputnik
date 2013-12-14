@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+[ -x /usr/bin/php ] || exit 0
+[ -e /var/www/sputnik/import_spots.php ] || exit 0
+
+/usr/bin/php /var/www/sputnik/import_spots.php || exit 1

@@ -1,0 +1,8 @@
+{
+  "name": "Correspondent",
+  "description": "Description of the app",
+  "icons": {
+    "128": "icon.png"
+  },
+  "launch_path": "index.html"
+}

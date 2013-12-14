@@ -1,0 +1,38 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+table.table{
+	font-size: 14px;
+}
+
+.appSearch{
+	margin: 10px 0;
+}
+
+td.filesize, td.age{
+	white-space:nowrap;
+}
+
+td.cat0{
+	color:blue;
+}
+td.cat1{
+	color:orange;
+}
+td.cat2{
+	color:green;
+}
+td.cat3{
+	color:red;
+}
+
+div.filters{
+	padding-left: 20px;
+}
