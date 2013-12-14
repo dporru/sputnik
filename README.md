@@ -17,7 +17,9 @@ When spotweb is installed follow these steps:
 3. Change any settings in config.php, if you have a non-standard installation.
 4. Copy the sputnik_import script to /etc/cron.daily
 
-	$ sudo cp /var/www/sputnik_import /etc/cron.daily/
+```shell
+$ sudo cp /var/www/sputnik_import /etc/cron.daily/
+```
 	
 5. Run the sputnik_import script to start importing spots from the Spotweb database. (This will take a while)
 6. Go to http://localhost/sputnik to start searching.
@@ -26,6 +28,6 @@ If you have any questions or problems, please let me know!
 
 ## To do
 
-* More search results
-* More filters (games, software)
-* Searchlist that fits on a mobile interface
+- [ ] More search results
+- [ ] More filters (games, software)
+- [ ] Searchlist that fits on a mobile interface
