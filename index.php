@@ -5,7 +5,7 @@ require_once('config.php');
 <html ng-app="sputnik" ng-csp>
   <head>
     <title>Sputnik - An ElasticSearch powered Spotweb frontend</title>
-    <meta content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/screen.css" rel="stylesheet">
   </head>
