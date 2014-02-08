@@ -78,8 +78,8 @@ if (isset($_GET['q']) AND $_GET['q'] !== '')
 {
 	$query = array(
 		'query' => array(
-			'match' => array(
-				'_all' => $_GET['q']
+			'query_string' => array(
+				'query' => $_GET['q']
 			)
 		),
 		'sort' => array(
