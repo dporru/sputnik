@@ -82,6 +82,7 @@ require_once('config.php');
 						</div>
 					</div>
 					<input type="submit" value="Search" class="btn btn-success pull-right" />
+					<div class="clearfix"></div>
 				</form>
 			</div>
 			<div class="col-md-8 appResults">

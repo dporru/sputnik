@@ -8,6 +8,10 @@ ng\:form {
   display: block;
 }
 
+form{
+	margin: 0;
+}
+
 table.table{
 	font-size: 14px;
 }
