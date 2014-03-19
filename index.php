@@ -89,25 +89,31 @@ require_once('config.php');
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Category</th>
+							<th class="hidden-xs">Category</th>
 							<th>Title</th>
-							<th>Sender</th>
-							<th>Age</th>
-							<th>Filesize</th>
+							<th class="hidden-xs">Sender</th>
+							<th class="hidden-xs">Age</th>
+							<th class="hidden-xs">Filesize</th>
+							<th class="visible-xs">Fileinfo</th>
 							<th>NZB</th>
 						<tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="spot in spots">
-							<td class="cat{{spot.category}}">{{getCatName(spot)}}</td>
+							<td class="hidden-xs cat{{spot.category}}">{{getCatName(spot)}}</td>
 							<td>
+								<em class="visible-xs">{{spot.poster}}</em>
 								<a ng-href="<?=rtrim($spotweb_url,'/')?>/#/spotweb/?page=getspot&messageid={{spot.id}}" target="_blank">
 									{{spot.title}}
-								</a>
+								</a><br>
+								<span class="visible-xs age">Age {{spot.dateDiff | millisecondsToStr}}</span>
 							</td>
-							<td>{{spot.poster}}</td>
-							<td class="age">{{spot.dateDiff | millisecondsToStr}}</td>
-							<td class="filesize">{{spot.filesize | bytes}}</td>
+							<td class="hidden-xs">{{spot.poster}}</td>
+							<td class="hidden-xs age">{{spot.dateDiff | millisecondsToStr}}</td>
+							<td class="filesize">
+								<span class="visible-xs cat{{spot.category}}">{{getCatName(spot)}}</span>
+								{{spot.filesize | bytes}}
+							</td>
 							<td><a ng-href="<?=rtrim($spotweb_url,'/')?>/?page=getnzb&action=display&messageid={{spot.id}}" target="_blank">NZB</a></td>
 						</tr>
 					</tbody>

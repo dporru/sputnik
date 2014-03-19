@@ -24,16 +24,16 @@ td.filesize, td.age{
 	white-space:nowrap;
 }
 
-td.cat0{
+.cat0{
 	color:blue;
 }
-td.cat1{
+.cat1{
 	color:orange;
 }
-td.cat2{
+.cat2{
 	color:green;
 }
-td.cat3{
+.cat3{
 	color:red;
 }
 

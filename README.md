@@ -29,5 +29,4 @@ If you have any questions or problems, please let me know!
 ## To do
 
 - [ ] More search results
-- [ ] More filters (games, software)
-- [ ] Searchlist that fits on a mobile interface
+- [x] Searchlist that fits on a mobile interface
