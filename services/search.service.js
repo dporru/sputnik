@@ -1,9 +1,11 @@
 app.factory('Search', function($http){
 	var exports = {
-		getSpots: function(query, filterType, subcats, callback){
+		getSpots: function(query, filterType, subcats, startRecord, numberOfRecords, callback){
 			var params = {
 				q:query,
-				subcats: angular.toJson(subcats)
+				subcats: angular.toJson(subcats),
+				startRecord: startRecord, 
+				numberOfRecords: numberOfRecords
 			};
 			
 			if (typeof(filterType) !== 'undefined')
@@ -14,7 +16,7 @@ app.factory('Search', function($http){
 			$http({method: 'GET', url: 'search.php', params: params}).
 				success(function(data, status, headers, config) {
 					var spots = [];
-					
+
 					for (var i in data.hits.hits)
 					{
 						var hit = data.hits.hits[i];
@@ -28,7 +30,7 @@ app.factory('Search', function($http){
 						
 						spots.push(spot);
 					}
-					callback(spots);
+					callback(spots, data.hits.total);
 				}).
 				error(function(data, status, headers, config){
 					console.error('unable to load article list');

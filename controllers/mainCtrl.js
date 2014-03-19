@@ -1,5 +1,9 @@
 function MainCtrl($scope, Search){
 	
+	$scope.total = 0;
+	$scope.page = 0;
+	$scope.itemsPerPage = 10;
+	
 	$scope.filterChoice = 'no-filter';
 	$scope.showFilters = false;
 	$scope.showVideoFilters = false;
@@ -69,13 +73,22 @@ function MainCtrl($scope, Search){
 			}
 		}
 		
+		var startRecord = $scope.page * $scope.itemsPerPage;
+		var numberOfRecords = $scope.itemsPerPage;
 		
-		Search.getSpots($scope.query, $scope.filterType, subcats, function(data){
+		Search.getSpots($scope.query, $scope.filterType, subcats, startRecord, numberOfRecords, function(data, total){
 			$scope.spots = data;
+			$scope.total = total;
 		});
 	};
 	
 	$scope.search();
+	
+	$scope.cleanSearch = function()
+	{
+		$scope.page = 0;
+		$scope.search();
+	}
 	
 	$scope.getCatName = function(spot){
 		switch(spot.category){
@@ -131,6 +144,7 @@ function MainCtrl($scope, Search){
 	
 	$scope.filterChoiceChanged = function()
 	{
+		$scope.page = 0
 		$scope.showFilters = ($scope.filterChoice == 'filter');
 		
 		if ($scope.filterChoice == 'no-filter')
@@ -144,6 +158,7 @@ function MainCtrl($scope, Search){
 	
 	$scope.filterTypeChanged = function()
 	{
+		$scope.page = 0
 		$scope.search();
 		
 		$scope.showVideoFilters = ($scope.filterType == 0);
@@ -152,6 +167,24 @@ function MainCtrl($scope, Search){
 	
 	$scope.filtersChanged = function()
 	{
+		$scope.page = 0
 		$scope.search();
+	}
+	
+	$scope.previousPage = function()
+	{
+		$scope.page = Math.max(0, $scope.page - 1);
+		$scope.search();
+	}
+	
+	$scope.nextPage = function()
+	{
+		$scope.page = Math.min(Math.floor($scope.total/$scope.itemsPerPage), $scope.page + 1);
+		$scope.search();
+	}
+	
+	$scope.totalNumberOfPages = function()
+	{
+		return Math.floor($scope.total/$scope.itemsPerPage);
 	}
 }

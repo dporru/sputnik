@@ -14,7 +14,7 @@ require_once('config.php');
 	<div ng-controller="MainCtrl" class="container">
 		<div class="row">
 			<div class="col-md-4 appSearch well">
-				<form ng-submit="search()">
+				<form ng-submit="cleanSearch()">
 					<div class="form-group">
 						<label for="query">Search text</label>
 						<input type="text" id="query" ng-model="query" placeholder="Search text" class="form-control" />
@@ -118,6 +118,10 @@ require_once('config.php');
 						</tr>
 					</tbody>
 				</table>
+				<ul class="pager">
+					<li ng-class="{disabled: page == 0}"><a ng-click="previousPage()">Previous</a></li>
+					<li ng-class="{disabled: page == totalNumberOfPages()}"><a ng-click="nextPage()">Next</a></li>
+				</ul>
 			</div>
 		</div>
 	</div>

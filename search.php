@@ -85,9 +85,6 @@ if (isset($_GET['q']) AND $_GET['q'] !== '')
 		'sort' => array(
 			'_score',
 			array('stamp' => array('order'=>'desc'))
-		),
-		'filter' => array(
-			'and' => $filters
 		)
 	);
 }
@@ -99,12 +96,18 @@ else
 		),
 		'sort' => array(
 			array('stamp' => array('order'=>'desc'))
-		),
-		'filter' => array(
-			'and' => $filters
 		)
 	);
 }
+
+// add filters
+$query['filter'] = array(
+	'and' => $filters
+);
+
+// add pagination
+$query['from'] = intval($_GET['startRecord']);
+$query['size'] = intval($_GET['numberOfRecords']) > 0 ? intval($_GET['numberOfRecords']) : 10;
 
 // create curl resource
 $ch = curl_init();
