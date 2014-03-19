@@ -25,8 +25,3 @@ $ sudo cp /var/www/sputnik_import /etc/cron.daily/
 6. Go to http://localhost/sputnik to start searching.
 
 If you have any questions or problems, please let me know!
-
-## To do
-
-- [x] More search results
-- [x] Searchlist that fits on a mobile interface
